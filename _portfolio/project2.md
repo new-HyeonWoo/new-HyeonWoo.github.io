@@ -2,7 +2,7 @@
 caption:
   title: 크리(Criee)
   subtitle: 중고명품 실시간 비교견적 플랫폼
-  thumbnail: https://place-hold.it/400x300
+  thumbnail: assets/img/portfolio/criee.png
 
 title: 크리(Criee)
 subtitle: 중고명품 실시간 비교견적 플랫폼.

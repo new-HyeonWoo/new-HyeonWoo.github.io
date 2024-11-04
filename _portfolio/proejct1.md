@@ -2,7 +2,7 @@
 caption: #포트폴리오 그리드에 표시될 내용:
   title: LUSH
   subtitle: 2024 프레시세일
-  thumbnail: https://place-hold.it/400x300
+  thumbnail: assets/img/portfolio/lush.jpeg
 
 # 항목을 클릭했을 때 표시되는 내용:
 title: LUSH 2024 프레시세일

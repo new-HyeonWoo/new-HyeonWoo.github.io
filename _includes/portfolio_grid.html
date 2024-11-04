@@ -17,7 +17,8 @@
               <i class="{{ site.data.style.portfolio-icon | default: "fas fa-plus fa-3x" }}"></i>
             </div>
           </div>
-          <img class="img-fluid" src="{{ project.caption.thumbnail }}" alt="">
+          <!-- Increase the height to make the image taller -->
+          <img class="img-fluid" src="{{ project.caption.thumbnail }}" alt="" style="width: 100%; height: 300px; object-fit: cover;">
         </a>
         <div class="portfolio-caption">
           <h4>{{ project.caption.title }}</h4>
