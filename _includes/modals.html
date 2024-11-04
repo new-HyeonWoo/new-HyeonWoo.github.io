@@ -1,42 +1,42 @@
 <!-- Portfolio Modals -->
 {% for project in site.portfolio %}
-{% if site.locale and site.locale != "" and site.locale != nil %}
+<!-- Portfolio Modal -->
+<!-- Portfolio Modal -->
 <div
-  class="portfolio-modal modal fade"
-  id="p{{ forloop.index }}"
-  tabindex="-1"
-  role="dialog"
-  aria-hidden="true"
+        class="portfolio-modal modal fade"
+        id="p{{ forloop.index }}"
+        tabindex="-1"
+        role="dialog"
+        aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="close-modal" data-dismiss="modal">
-        <div class="lr">
-          <div class="rl"></div>
-        </div>
+        <span class="close-icon">&times;</span>
       </div>
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
             <div class="modal-body">
               <!-- Project Details Go Here -->
-              <h2 class="text-uppercase">{{ project.title }}</h2>
-              <p class="item-intro text-muted">{{ project.subtitle }}</p>
+              <h2 class="modal-title text-uppercase mb-3 text-center">{{ project.title }}</h2>
+              <p class="item-intro text-muted mb-4 text-center">{{ project.subtitle }}</p>
               <img
-                class="img-fluid d-block mx-auto"
-                src="{{ project.image }}"
-                alt="{{ project.alt }}"
+                      class="img-fluid d-block mx-auto rounded mb-4"
+                      src="{{ project.image }}"
+                      alt="{{ project.alt }}"
               />
-              <p>{{ project.content }}</p>
-              <button
-                class="btn btn-primary"
-                data-dismiss="modal"
-                type="button"
-              >
-                <i class="fas fa-times"></i>
-                {{ site.data.sitetext[site.locale].portfolio.closebutton |
-                default: "Close Project" }}
-              </button>
+              <p class="modal-description text-left mb-4">{{ project.content }}</p> <!-- Left-aligned description -->
+              <div class="text-center"> <!-- Center the button below the description -->
+                <button
+                        class="btn btn-outline-light btn-lg"
+                        data-dismiss="modal"
+                        type="button"
+                >
+                  <i class="fas fa-times"></i>
+                  {{ site.data.sitetext[site.locale].portfolio.closebutton | default: "Close Project" }}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -44,50 +44,70 @@
     </div>
   </div>
 </div>
-{% else %}
-<div
-  class="portfolio-modal modal fade"
-  id="p{{ forloop.index }}"
-  tabindex="-1"
-  role="dialog"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="close-modal" data-dismiss="modal">
-        <div class="lr">
-          <div class="rl"></div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <div class="modal-body">
-              <!-- Project Details Go Here -->
-              <h2 class="text-uppercase">{{ project.title }}</h2>
-              <p class="item-intro text-muted">{{ project.subtitle }}</p>
-              <img
-                class="img-fluid d-block mx-auto"
-                src="{{ project.image }}"
-                alt="{{ project.alt }}"
-              />
-              <p>{{ project.content }}</p>
-              <button
-                class="btn btn-primary"
-                data-dismiss="modal"
-                type="button"
-              >
-                <i class="fas fa-times"></i>
-                {{ site.data.sitetext.portfolio.closebutton |
-                default: "Close Project" }}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{% endif %}
 {% endfor %}
 <!-- End Portfolio Modals -->
+
+<style>
+  .portfolio-modal .modal-content {
+    background-color: #1a1a1a; /* Dark background for modern look */
+    color: #ffffff; /* White text for contrast */
+    border-radius: 10px; /* Rounded corners for a sleek look */
+    padding: 30px; /* Add padding for better spacing */
+  }
+
+  .modal-description {
+    font-size: 1rem;
+    line-height: 1.6; /* Better readability */
+    color: #cccccc; /* Light grey text for description */
+    text-align: left; /* Left-align the description text */
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: #ffcc00; /* Highlight color for close icon */
+    font-size: 2rem; /* Larger close icon */
+  }
+
+  .close-icon {
+    font-size: 1.5rem; /* Size of the close icon */
+  }
+
+  .modal-title {
+    font-size: 2rem; /* Larger title for emphasis */
+    color: #ffcc00; /* Highlight color for the title */
+  }
+
+  .item-intro {
+    color: #b0b0b0; /* Muted text for subtitle */
+    font-size: 1.1rem; /* Slightly larger font size for readability */
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for images */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
+  }
+
+  .modal-description {
+    font-size: 1rem;
+    line-height: 1.6; /* Better readability */
+    color: #cccccc; /* Light grey text for description */
+  }
+
+  .btn-outline-light {
+    border: 2px solid #ffcc00; /* Outline color for button */
+    color: #ffcc00; /* Text color for button */
+    padding: 10px 20px; /* Button padding */
+    font-size: 1rem; /* Button font size */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  }
+
+  .btn-outline-light:hover {
+    background-color: #ffcc00; /* Yellow background on hover */
+    color: #1a1a1a; /* Dark text color on hover */
+  }
+</style>

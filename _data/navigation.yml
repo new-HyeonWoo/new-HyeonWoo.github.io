@@ -15,8 +15,8 @@ en: &DEFAULT_EN
       section: services
     - title: "포트폴리오"
       section: portfolio
-    - title: "회사소개"
-      section: about
+    - title: "프로젝트 진행 과정"
+      section: project-timeline
     - title: "자주 묻는 질문"
       section: faq
     - title: "프로젝트 견적 문의하기"

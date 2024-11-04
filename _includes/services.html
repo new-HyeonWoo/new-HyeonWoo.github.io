@@ -1,63 +1,85 @@
-{% if site.locale and site.locale != "" and site.locale != nil %}
-<section class="page-section" id="{{ site.data.sitetext[site.locale].services.section | default: "services" }}">
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12 text-left">
-      <h2 class="section-heading text-uppercase" style="font-size: 1.5rem;">{{ site.data.sitetext[site.locale].services.title | default: "Services" }}</h2>
-      {% if site.data.sitetext[site.locale].services.text %}
-      <h3 class="section-subheading text-muted" style="font-size: 1rem;">{{ site.data.sitetext[site.locale].services.text }}</h3>
-      {% endif %}
-    </div>
-  </div>
-
-  <div class="row">
-    {% for service in site.data.sitetext[site.locale].services.list %}
-    <div class="col-md-4 mb-4">
-      <div class="card p-1 h-100">
-        <div class="card-body text-left">
-          <div class="service-image-wrapper mb-3">
-            <img class="rounded img-fluid" src="{{ service.image | default: 'https://place-hold.it/200x150' }}" alt="{{ service.title }}" style="width: 100%; max-height: 150px; object-fit: cover;">
-          </div>
-          <h4 class="service-heading mb-2" style="font-size: 1.25rem;">{{ service.title | markdownify }}</h4>
-          {% if service.desc %}
-          <p class="text-muted" style="font-size: 0.875rem;">{{ service.desc | markdownify }}</p>
-          {% endif %}
-        </div>
+<section class="py-5" id="{{ site.data.sitetext[site.locale].services.section | default: 'services' }}">
+  <div class="container">
+    <!-- Title Section -->
+    <div class="row mb-5">
+      <div class="col-lg-12 text-center" data-aos="fade-up">
+        <h2 class="section-heading text-uppercase">고객이 원하는 B2B, B2C, B2B2C 플랫폼 개발에 자신있습니다.</h2>
+        <h3 class="section-subheading text-light">
+          전자상거래(E-Commerce), 모바일 플랫폼, 내부 관리자 페이지 개발을 통해 사용자의 편리함과 비즈니스 성장에 기여합니다.
+        </h3>
       </div>
     </div>
-    {% endfor %}
-  </div>
-</div>
-</section>
-{% else %}
-<section class="page-section" id="{{ site.data.sitetext.services.section | default: "services" }}">
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12 text-center">
-      <h2 class="section-heading text-uppercase" style="font-size: 1.5rem;">{{ site.data.sitetext.services.title | default: "Services" }}</h2>
-      {% if site.data.sitetext.services.text %}
-      <h3 class="section-subheading text-muted" style="font-size: 1rem;">{{ site.data.sitetext.services.text }}</h3>
-      {% endif %}
-    </div>
-  </div>
 
-  <div class="row mt-4">
-    {% for service in site.data.sitetext.services.list %}
-    <div class="col-md-4 mb-4">
-      <div class="card p-3 h-100">
-        <div class="card-body text-left">
-          <div class="service-image-wrapper mb-3">
-            <img class="rounded img-fluid" src="{{ service.image | default: 'https://place-hold.it/200x150' }}" alt="{{ service.title }}" style="width: 100%; max-height: 150px; object-fit: cover;">
+    <!-- Service Cards -->
+    <div class="row" data-aos="fade-up">
+      {% for service in site.data.sitetext[site.locale].services.list %}
+      <div class="col-md-4 mb-4">
+        <div class="card service-card h-100 border-0">
+          <div class="card-body d-flex flex-column">
+            <div class="service-image-wrapper mb-3">
+              <img class="rounded img-fluid" src="{{ service.image | default: 'https://place-hold.it/200x150' }}" alt="{{ service.title }}" style="width: 100%; max-height: 150px; object-fit: cover; border-radius: 15px;">
+            </div>
+            <h4 class="service-heading text-white fw-bold mb-2">{{ service.title | markdownify }}</h4>
+            {% if service.desc %}
+            <p class="text-light mb-3">{{ service.desc | markdownify }}</p>
+            {% endif %}
+            <a href="#" class="mt-auto btn btn-outline-light rounded-pill">자세히 보기</a>
           </div>
-          <h4 class="service-heading mb-2" style="font-size: 1.25rem;">{{ service.title | markdownify }}</h4>
-          {% if service.desc %}
-          <p class="text-muted" style="font-size: 0.875rem;">{{ service.desc | markdownify }}</p>
-          {% endif %}
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-</div>
 </section>
-{% endif %}
+
+<!-- Custom CSS -->
+<style>
+  .page-section {
+    background-color: #121212; /* Dark background for the section */
+  }
+
+  .section-heading {
+    font-size: 2rem; /* Larger font size for the main title */
+    color: #fed136; /* Signature color */
+  }
+
+  .section-subheading {
+    font-size: 1rem;
+    color: #aaaaaa; /* Light grey for better readability */
+  }
+
+  .service-card {
+    background-color: #1f1f1f; /* Dark card background */
+    border-radius: 20px; /* More rounded corners for a softer look */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  }
+
+  /* Update the text color for the description */
+  .service-card p {
+    color: #e0e0e0; /* Lighter grey for better contrast */
+    font-size: 0.875rem; /* Ensure the font size is readable */
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+  }
+
+  .service-heading {
+    font-size: 1.2rem; /* Font size for service title */
+    color: #ffffff; /* White text for title */
+  }
+
+  .btn-outline-light {
+    border-color: #fed136; /* Signature color for button outline */
+    color: #fed136; /* Text color */
+    border-radius: 30px; /* More rounded corners for the button */
+    padding: 10px 20px; /* Adjusted padding for a rounded button */
+  }
+
+  .btn-outline-light:hover {
+    background-color: #fed136; /* Fill background on hover */
+    color: #000; /* Black text on hover */
+  }
+</style>

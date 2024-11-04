@@ -1,23 +1,88 @@
-<!-- Contact -->
-<section class="page-section" id="contact" style="background-color: #1a1a1a; padding: 40px 0;">
+<!-- Contact Section -->
+<!-- Contact Section -->
+<!-- Contact Section -->
+<section class="page-section contact-section" id="contact">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase" style="font-size: 1.8rem; color: #ffffff;">견적 문의</h2>
-        <h3 class="section-subheading text-muted" style="font-size: 1rem; color: #f0f0f0;">이메일 또는 전화번호로 문의 부탁드립니다.</h3>
+        <h2 class="section-heading">견적 문의</h2>
+        <h3 class="section-subheading">이메일 또는 전화번호로 문의 부탁드립니다.</h3>
       </div>
     </div>
-    <div class="row justify-content-center mt-4">
+    <!-- Replace with your custom character image -->
+    <div class="row justify-content-center mt-5">
+      <!-- Contact 1 -->
       <div class="col-md-6 text-center">
-        <div class="contact-info mb-3">
-          <i class="fas fa-phone-alt" style="color: #ffcc00; margin-right: 8px;"></i> <!-- 밝은 아이콘 색상 -->
-          <span style="font-size: 1.1rem; color: #ffffff;">010-2841-1015 (최현우)</span> <!-- 밝은 텍스트 색상 -->
+        <i class="fas fa-user contact-icon mb-3" style="font-size: 3rem; color: #ffcc00;"></i> <!-- User Icon -->
+        <div class="contact-info mb-4 d-flex align-items-center justify-content-center">
+          <i class="fas fa-phone-alt contact-icon"></i>
+          <span class="contact-text">
+            <a href="tel:01028411015" style="color: #ffffff; text-decoration: none;">010-2841-1015 (최현우)</a>
+          </span>
         </div>
-        <div class="contact-info">
-          <i class="fas fa-envelope" style="color: #ffcc00; margin-right: 8px;"></i> <!-- 밝은 아이콘 색상 -->
-          <span style="font-size: 1.1rem; color: #ffffff;">chlgusdn3@naver.com</span> <!-- 밝은 텍스트 색상 -->
+        <div class="contact-info mb-4 d-flex align-items-center justify-content-center">
+          <i class="fas fa-envelope contact-icon"></i>
+          <span class="contact-text">chlgusdn3@naver.com</span>
+        </div>
+        <div class="contact-info d-flex align-items-center justify-content-center">
+          <i class="fas fa-comment contact-icon"></i>
+          <span class="contact-text"> - </span>
+        </div>
+      </div>
+      <!-- Contact 2 -->
+      <div class="col-md-6 text-center">
+        <i class="fas fa-user contact-icon mb-3" style="font-size: 3rem; color: #ffcc00;"></i> <!-- User Icon -->
+        <div class="contact-info mb-4 d-flex align-items-center justify-content-center">
+          <i class="fas fa-phone-alt contact-icon"></i>
+          <span class="contact-text">
+            <a href="tel:01097975624" style="color: #ffffff; text-decoration: none;">010-9797-5624 (이정수)</a>
+          </span>
+        </div>
+        <div class="contact-info mb-4 d-flex align-items-center justify-content-center">
+          <i class="fas fa-envelope contact-icon"></i>
+          <span class="contact-text">dlwjdtn535@gmail.com</span>
+        </div>
+        <div class="contact-info d-flex align-items-center justify-content-center">
+          <i class="fas fa-comment contact-icon"></i>
+          <span class="contact-text"> - </span>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .contact-section {
+    background-color: #1a1a1a; /* Dark background */
+    padding: 100px 0; /* Increase vertical padding for more space */
+  }
+
+  .section-heading {
+    font-size: 2rem; /* Larger font size for the heading */
+    color: #ffffff; /* White text color */
+    margin-bottom: 20px; /* Space below the heading */
+  }
+
+  .section-subheading {
+    font-size: 1.1rem; /* Slightly larger font size for the subheading */
+    color: #b0b0b0; /* Muted grey text for contrast */
+    margin-bottom: 40px; /* Space below the subheading */
+  }
+
+  .contact-info {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center the items */
+    justify-content: center; /* Center items horizontally */
+    gap: 10px; /* Space between the icon and text */
+  }
+
+  .contact-icon {
+    color: #ffcc00; /* Icon color */
+    font-size: 1.5rem; /* Icon size */
+  }
+
+  .contact-text {
+    font-size: 1.2rem; /* Larger font size for better readability */
+    color: #ffffff; /* White text color */
+  }
+</style>

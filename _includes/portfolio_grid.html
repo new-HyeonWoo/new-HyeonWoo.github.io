@@ -1,62 +1,112 @@
 <!-- Portfolio Grid -->
-{% if site.locale and site.locale != "" and site.locale != nil %}
-<section class="bg-light page-section" id="{{ site.data.sitetext.portfolio.section | default: "portfolio" }}">
+<section class="py-5 text-white" id="portfolio">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-left">
-        <h4 class="section-heading">{{ site.data.sitetext[site.locale].portfolio.title | markdownify | default: "Portfolio" }}</h4>
-        <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].portfolio.text | markdownify }}</h3>
-      </div>
-    </div>
-    <div class="row">
-	{% for project in site.portfolio %}
-      <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#p{{ forloop.index }}">
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="{{ site.data.style.portfolio-icon | default: "fas fa-plus fa-3x" }}"></i>
-            </div>
-          </div>
-          <!-- Increase the height to make the image taller -->
-          <img class="img-fluid" src="{{ project.caption.thumbnail }}" alt="" style="width: 100%; height: 300px; object-fit: cover;">
-        </a>
-        <div class="portfolio-caption">
-          <h4>{{ project.caption.title }}</h4>
-          <p class="text-muted">{{ project.caption.subtitle }}</p>
-        </div>
-      </div>
-	{% endfor %}
-    </div>
-  </div>
-</section>
-{% else %}
-<section class="bg-light page-section" id="{{ site.data.sitetext.portfolio.section | default: "portfolio" }}">
-  <div class="container">
-    <div class="row">
+    <!-- Title Section -->
+    <div class="row mb-5" data-aos="fade-up">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">{{ site.data.sitetext.portfolio.title | markdownify | default: "Portfolio" }}</h2>
-        <h3 class="section-subheading text-muted">{{ site.data.sitetext.portfolio.text | markdownify }}</h3>
+        <p class="subtitle">우리 회사의 문제도 CHOIS에서 해결하세요.</p>
+        <h2 class="main-title">실제 개발사례를 확인하세요.</h2>
       </div>
     </div>
-    <div class="row">
-	{% for project in site.portfolio %}
-      <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#p{{ forloop.index }}">
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="{{ site.data.style.portfolio-icon | default: "fas fa-plus fa-3x" }}"></i>
+
+    <!-- Scrollable Portfolio Items -->
+    <div class="portfolio-scroll-container" data-aos="fade-up">
+      <div class="d-flex flex-nowrap">
+        {% for project in site.portfolio %}
+        <div class="portfolio-card-wrapper flex-shrink-0" style="width: 300px; margin-right: 15px;">
+          <a class="card-link" data-toggle="modal" href="#p{{ forloop.index }}">
+            <div class="card portfolio-card h-100 border-0">
+              <img class="card-img-top rounded-top" src="{{ project.caption.thumbnail }}" alt="{{ project.caption.title }}" style="width: 100%; height: 200px; object-fit: cover;">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <h5 class="card-title fw-bold">{{ project.caption.title }}</h5>
+                <p class="card-text text-light">{{ project.caption.subtitle }}</p>
+                <div class="text-success fw-bold mt-auto">자세히 보기 &rarr;</div>
+              </div>
             </div>
-          </div>
-          <img class="img-fluid" src="{{ project.caption.thumbnail }}" alt="">
-        </a>
-        <div class="portfolio-caption">
-          <h4>{{ project.caption.title }}</h4>
-          <p class="text-muted">{{ project.caption.subtitle }}</p>
+          </a>
         </div>
+        {% endfor %}
       </div>
-	{% endfor %}
     </div>
   </div>
 </section>
-{% endif %}
 {% include modals.html %}
+
+<!-- Custom CSS -->
+<style>
+
+  /* Ensure the entire section has a consistent background color */
+  /* Ensure the entire section has a consistent background color */
+  #portfolio {
+    padding: 50px 0; /* Add padding to increase the section height */
+    min-height: 100vh; /* Ensure the section covers the full viewport height */
+  }
+
+  #portfolio .container {
+    max-width: 100%; /* Full width for the container */
+    padding-left: 0; /* No left padding */
+    padding-right: 0; /* No right padding */
+    margin: 0 auto; /* Center the container */
+  }
+
+  .portfolio-scroll-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    padding-left: 15px; /* Indent the cards slightly */
+    margin-top: 30px; /* Increase space above the cards */
+    margin-bottom: 30px; /* Increase space below the cards */
+  }
+
+  .portfolio-scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari, and Opera */
+  }
+
+  .portfolio-card-wrapper {
+    width: 300px; /* Card width */
+    margin-right: 15px; /* Space between cards */
+  }
+
+  .portfolio-card {
+    background-color: #1f1f1f; /* Dark background for cards */
+    border-radius: 15px; /* Rounded corners for the card */
+    overflow: hidden; /* Clip the image to the card's rounded corners */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Deep shadow on hover */
+  }
+
+  .card-img-top {
+    border-top-left-radius: 15px; /* Make image corners rounded */
+    border-top-right-radius: 15px;
+  }
+
+  .card-title {
+    font-size: 1rem; /* Adjusted font size for the card title */
+    margin-bottom: 0.5rem;
+  }
+
+  .card-text {
+    font-size: 0.85rem; /* Adjusted font size for the card text */
+    color: #cccccc; /* Light grey for better readability */
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Smaller font size for the subtitle */
+    font-weight: 400; /* Normal font weight */
+    color: #ffffff; /* White color for the subtitle */
+    margin-bottom: 5px; /* Small space below the subtitle */
+  }
+
+  .main-title {
+    font-size: 2.5rem; /* Larger font size for the main title */
+    font-weight: 700; /* Bold font weight for emphasis */
+    color: #ffffff; /* White color for the main title */
+    margin: 0; /* Remove default margin */
+  }
+</style>
+
