@@ -11,9 +11,9 @@
 # -----------------
 en: &DEFAULT_EN
   header:
-    title: Welcome to our Studio!
-    text: It's Nice To Meet You
-    button: Tell Me More
+    title: 초이스 컴퍼니에 오신 것을 환영합니다!
+    text: 웹 및 앱 솔루션을 제공하는 전문 개발사입니다
+    button: 서비스 알아보기
     buttonlink: "#services"
 
   services:
